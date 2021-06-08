@@ -3,12 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import { Home } from "./Home";
 import { Login } from "./Login";
 import { Secret } from "./Secret";
+import SimpleContainer from "./components/MainContainer";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Switch>
+          <Route path="/main" render={() => <SimpleContainer />} />
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />
