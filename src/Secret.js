@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import store from "./store"
+import store from "./store";
 const server = process.env.REACT_APP_API_SERVER;
 export const Secret = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-/*    // Пример отправки POST запроса:
+    /*    // Пример отправки POST запроса:
     async function postData(url = '', data = {}) {
       // Default options are marked with *
       const response = await fetch(url, {
@@ -29,8 +29,7 @@ export const Secret = () => {
           console.log(data); // JSON data parsed by `response.json()` call
         });*/
 
-
- /*   fetch('/api/secret"',
+    /*   fetch('/api/secret"',
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -44,7 +43,7 @@ export const Secret = () => {
         .then((data) => {
           console.log(data);
         });*/
-    console.log(localStorage.getItem("token"))
+    console.log(store.getToken());
     fetch(`${server}/api/secret `, {
       headers: {
         Authorization: store.getToken(),
