@@ -1,29 +1,29 @@
-const server = process.env.REACT_APP_API_SERVER;
+const server = process.env.REACT_APP_API_SERVER
 
-export const login = (email, password) => {
-  console.log("куки", localStorage.getItem("token"))
-  return fetch(`${server}/api/login`, {
-    method: "POST",
+export const login = (userName, password) => {
+  debugger
+  return fetch(`${server}/api/signin`, {
+    method: 'POST',
     body: JSON.stringify({
-      email,
+      userName,
       password,
     }),
     headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("token")
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
     },
   }).then((res) => {
     if (res.status === 200) {
-      console.log("куки после запроса", localStorage.getItem("token"))
+      debugger
       return res.json().then((data) => {
-        console.log("токен ответа с сервера",data.token)
-        return data.token
-      });
+        return data
+      })
     } else {
-      const error = new Error(res.error);
-      throw error;
+      debugger
+      const error = new Error(res.error)
+      throw error
     }
-  });
-};
+  })
+}
 
-export const getSecret = () => {};
+export const getSecret = () => {}

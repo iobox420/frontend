@@ -20,6 +20,9 @@ const useStyles = makeStyles({
   replyTopBlock: {
     padding: '16px 16px 0px 16px',
   },
+  question: {
+    padding: '16px 16px 0px 0px',
+  },
   buttonBlock: {
     padding: '0px 10px 0px 24px',
   },
@@ -62,74 +65,49 @@ const useStyles = makeStyles({
   likeArea: {
     display: 'flex',
   },
-  textPostQuestion: {
-    padding: '16px 16px 0px 0px',
-    fontSize: '1.25rem',
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontWeight: 500,
-    lineHeight: 1.6,
-    letterSpacing: '0.0075em',
-    textDecoration: 'none',
-    margin: '0em',
-  },
-  textPostQuestionActive: {
-    padding: '16px 16px 0px 0px',
-    fontSize: '1.25rem',
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontWeight: 500,
-    lineHeight: 1.6,
-    letterSpacing: '0.0075em',
-    textDecoration: 'none',
-    margin: '0em',
-  },
 })
 
-export default function Text(props) {
+export default function Question(props) {
+  /*console.log(props)*/
   const c = useStyles()
   /* const [count, setCount] = useState(0)*/
-  /*const toPost = (props) => {}*/
-  const toQuestion = (props) => {
-    console.log(props)
+  const toPost = (props) => {
+    debugger
   }
+  debugger
   return (
     <Card className={c.root} /*onClick={toPost(props)}*/>
       {/*question*/}
-      {/*<CardActionArea className={c.card}>*/}
-      <CardContent className={c.replyTopBlock}>
-        <NavLink
-          to={'questions/' + props.props._id_post}
-          activeClassName={c.textPostQuestionActive}
-          className={c.textPostQuestion}
-          onClick={() => {
-            console.log('clk')
-          }}
-        >
-          {props.props.questions_text}
-        </NavLink>
-      </CardContent>
-      <CardContent className={c.avatarReplyBlock}>
-        <Typography variant="h6" gutterBottom className={c.replyAsk}>
-          cпрашивает
-        </Typography>
-        <Avatar
-          alt={props.props.name + ' ' + props.props.name}
-          src={props.props.avatar_url}
-          className={c.small}
-        />
-        <Typography variant="h6" gutterBottom className={c.replyAskName}>
-          {props.props.name + ' ' + props.props.name}
-        </Typography>
+      <CardActionArea className={c.card}>
+        <CardContent className={c.replyTopBlock}>
+          <Typography variant="h6" gutterBottom className={c.question}>
+            {props.props.questions_text}
+          </Typography>
+        </CardContent>
+        <CardContent className={c.avatarReplyBlock}>
+          <Typography variant="h6" gutterBottom className={c.replyAsk}>
+            cпрашивает
+          </Typography>
+          <Avatar
+            alt={props.props.user_name + ' ' + props.props.user_second_name}
+            src={props.props.user_avatar_url}
+            className={c.small}
+          />
+          <Typography variant="h6" gutterBottom className={c.replyAskName}>
+            {props.props.user_name + ' ' + props.props.user_second_name}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      {/*<CardActionArea>
         <CardContent className={c.likeArea}>
           <FavoriteIcon />
           <Typography variant="h6" gutterBottom className={c.replyAsk}>
             {props.props.question_post_likes_count}
           </Typography>
-          {/*<div>{count}</div>*/}
-          {/*<button onClick={() => setCount(count + 1)}></button>*/}
+          <div>{count}</div>
+          <button onClick={() => setCount(count + 1)}></button>
         </CardContent>
-      </CardContent>
-      {/*</CardActionArea>*/}
-      <CardActionArea></CardActionArea>
+      </CardActionArea>
       <CardActionArea className={c.card}>
         {' '}
         <CardContent>
@@ -147,7 +125,7 @@ export default function Text(props) {
             {props.props.reply_text}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      </CardActionArea>*/}
     </Card>
   )
 }

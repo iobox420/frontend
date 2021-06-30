@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import store from "./store";
-const server = process.env.REACT_APP_API_SERVER;
+import React, { useEffect, useState } from 'react'
+import store from './redux/store'
+const server = process.env.REACT_APP_API_SERVER
 export const Secret = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState()
 
   useEffect(() => {
     /*    // Пример отправки POST запроса:
@@ -43,27 +43,27 @@ export const Secret = () => {
         .then((data) => {
           console.log(data);
         });*/
-    console.log(store.getToken());
+    console.log(store.getToken())
     fetch(`${server}/api/secret `, {
       headers: {
         Authorization: store.getToken(),
       },
     })
       .then((res) => {
-        return res.json();
+        return res.json()
       })
       .then((user) => {
-        setUser(user);
+        setUser(user)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+        console.log(err)
+      })
+  }, [])
 
   return (
     <>
       <h1>Secret</h1>
       <p>{JSON.stringify(user, null, 2)}</p>
     </>
-  );
-};
+  )
+}
