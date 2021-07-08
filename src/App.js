@@ -7,8 +7,9 @@ import MainPageContainer from './components/MainPageContainer'
 import Test from './components/Test'
 
 const App = (props) => {
-  return (
-    <div>
+  return <MainPageContainer store={props.store} />
+
+  /*    (<div>
       <Route
         path="/main"
         render={() => <MainPageContainer store={props.store} />}
@@ -18,7 +19,7 @@ const App = (props) => {
       <Route path="/login" component={Login} />
       <Route path="/secret" component={Secret} />
     </div>
-  )
+  )*/
 }
 
 export default App

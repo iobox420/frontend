@@ -61,6 +61,9 @@ const useStyles = makeStyles({
   },
   likeArea: {
     display: 'flex',
+    padding: '0 0 0 0',
+    margin: '3px 0 0px 17px',
+    paddingBottom: '0px',
   },
   textPostQuestion: {
     padding: '16px 16px 0px 0px',
@@ -101,7 +104,7 @@ export default function Text(props) {
           activeClassName={c.textPostQuestionActive}
           className={c.textPostQuestion}
           onClick={() => {
-            console.log('clk')
+            /*console.log('clk')*/
           }}
         >
           {props.props.questions_text}
@@ -119,6 +122,7 @@ export default function Text(props) {
         <Typography variant="h6" gutterBottom className={c.replyAskName}>
           {props.props.name + ' ' + props.props.name}
         </Typography>
+        {/*like component*/}
         <CardContent className={c.likeArea}>
           <FavoriteIcon />
           <Typography variant="h6" gutterBottom className={c.replyAsk}>
@@ -130,7 +134,7 @@ export default function Text(props) {
       </CardContent>
       {/*</CardActionArea>*/}
       <CardActionArea></CardActionArea>
-      <CardActionArea className={c.card}>
+      <CardActionArea>
         {' '}
         <CardContent>
           <CardContent className={c.avatarBlock}>

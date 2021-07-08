@@ -6,7 +6,8 @@ import SubHeader from './ssubHeader'
 import TextApi from './TextApiComponent'
 import QuestionApi from './QuestionApiComponent'
 import { BrowserRouter, Route } from 'react-router-dom'
-import store from '../redux/store'
+import NativeTextApi from './NativeTextApiComponent'
+import NativeQuestionApi from './NativeQuestionApiComponent'
 
 const MainPage = (props) => {
   function RDM(min = 1, max = 10000) {
@@ -24,23 +25,23 @@ const MainPage = (props) => {
           <Header />
           <SubHeader />
           <div className="app-wrapper-content">
-            {/*<TextApi props={props} api={'api/questions/all/'} />*/}
-
-            {/*<Route
-              path="/question"
-              render={() => <QuestionApi props={props} />}
-            />*/}
-
             <Route
               exact
               path="/questions/:genreId"
-              render={() => <QuestionApi props={props} />}
+              render={() => <NativeQuestionApi props={props} />}
             />
+
+            {/*<Route
+              path="/all"
+              render={() => (
+                <TextApi props={props} api={'api/questions/all/'} />
+              )}
+            />*/}
 
             <Route
               path="/all"
               render={() => (
-                <TextApi props={props} api={'api/questions/all/'} />
+                <NativeTextApi props={props} api={'api/questions/all/'} />
               )}
             />
             <Route
