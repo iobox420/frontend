@@ -1,6 +1,6 @@
 import React from 'react'
 
-import store from '../redux/store'
+import store from '../redux/redux-store'
 import NativeText from './NativeText'
 import { makeStyles } from '@material-ui/core/styles'
 /*import config from '../config'*/
@@ -38,7 +38,7 @@ function NativeTextApi(props) {
         (result) => {
           setIsLoaded(true)
           store.dispatch({ type: 'UPDATE-POSTS', data: result })
-          setItems(store.getPosts())
+          setItems(store.getState().mainPage.posts)
         },
         // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
         // чтобы не перехватывать исключения из ошибок в самих компонентах.

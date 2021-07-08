@@ -8,6 +8,7 @@ import QuestionApi from './QuestionApiComponent'
 import { BrowserRouter, Route } from 'react-router-dom'
 import NativeTextApi from './NativeTextApiComponent'
 import NativeQuestionApi from './NativeQuestionApiComponent'
+import NativeQuestionApiComponent from './NativeQuestionApiComponent'
 
 const MainPage = (props) => {
   function RDM(min = 1, max = 10000) {
@@ -59,6 +60,12 @@ const MainPage = (props) => {
             <Route
               path="/bestofyear"
               render={() => <TextApi api={'api/questions/bestofyear/'} />}
+            />
+            <Route
+              path="/redux"
+              render={() => (
+                <NativeQuestionApiComponent api={'api/questions/bestofyear/'} />
+              )}
             />
           </div>
         </Container>
