@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 })
 
-function NativeTextApi(props) {
+function QuestionOnTheMainApiComponent(props) {
   const c = useStyles()
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -64,4 +64,4 @@ function NativeTextApi(props) {
   }
 }
 
-export default NativeTextApi
+export default QuestionOnTheMainApiComponent

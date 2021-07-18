@@ -4,11 +4,9 @@ import Container from '@material-ui/core/Container'
 import Header from './Header'
 import SubHeader from './ssubHeader'
 import TextApi from './TextApiComponent'
-import QuestionApi from './QuestionApiComponent'
 import { BrowserRouter, Route } from 'react-router-dom'
-import NativeTextApi from './Question/QuestionOnTheMainApiComponent'
-import NativeQuestionApi from './Question/QuestionSingleApiComponent'
-import NativeQuestionApiComponent from './Question/QuestionSingleApiComponent'
+import QuestionOnTheMainApiComponent from './Question/QuestionOnTheMainApiComponent'
+import QuestionSingleApiComponent from './Question/QuestionSingleApiComponent'
 
 const MainPage = (props) => {
   function RDM(min = 1, max = 10000) {
@@ -29,20 +27,15 @@ const MainPage = (props) => {
             <Route
               exact
               path="/questions/:genreId"
-              render={() => <NativeQuestionApi props={props} />}
+              render={() => <QuestionSingleApiComponent props={props} />}
             />
-
-            {/*<Route
-              path="/all"
-              render={() => (
-                <TextApi props={props} api={'api/questions/all/'} />
-              )}
-            />*/}
-
             <Route
               path="/all"
               render={() => (
-                <NativeTextApi props={props} api={'api/questions/all/'} />
+                <QuestionOnTheMainApiComponent
+                  props={props}
+                  api={'api/questions/all/'}
+                />
               )}
             />
             <Route
@@ -61,12 +54,12 @@ const MainPage = (props) => {
               path="/bestofyear"
               render={() => <TextApi api={'api/questions/bestofyear/'} />}
             />
-            <Route
+            {/*            <Route
               path="/redux"
               render={() => (
                 <NativeQuestionApiComponent api={'api/questions/bestofyear/'} />
               )}
-            />
+            />*/}
           </div>
         </Container>
       </React.Fragment>

@@ -1,5 +1,12 @@
 import React /*, { useState }*/, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Avatar from '@material-ui/core/Avatar'
+/*import Like from '../img/like.svg'*/
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import { NavLink } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -41,6 +48,13 @@ const useStyles = makeStyles({
   avatarLine: {
     display: 'flex',
     margin: '10px 0 0 0',
+  },
+  avatarName: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: 'black',
+    margin: '0 0 0px 4px',
+    lineHeight: 3.28,
   },
   avatarText: {
     lineHeight: 3.28,
@@ -146,14 +160,20 @@ const useStyles = makeStyles({
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
 })
-
-export default function QuestionSingle(props) {
-  console.log(props)
-
+/*  props:
+    id_post: 819
+    id_user: 305
+    reply_date_create: "2018-06-23T19:00:00.000Z"
+    reply_text: "bswejeWcPAouObbfsBt803tDIJ2wkdth1RdXg8oaXJfsgqT9ZGbGJwOaLSqtXijT3d582zAmolXHdyuqrUEEqLu2QtkQSbUrwGBR"
+    user_avatar_url: "https://gravatar.com/avatar/14a52470996fd6ecc8a1b6874b0d157a?s=400&d=robohash&r=x"
+    user_name: "EqhxPtFz"
+    user_second_name: "lJAmqz11"
+    user_user_name: "ogr0mSWc"
+    _id_reply: 3645
+    __proto__: Object*/
+export default function Reply(props) {
   const c = useStyles()
-  /* const [count, setCount] = useState(0)*/
-  /*const toPost = (props) => {}*/
-
+  debugger
   return (
     <div className={c.questionWrapper}>
       <div className={c.lineOneTagsAndData}>
@@ -169,8 +189,11 @@ export default function QuestionSingle(props) {
               className={c.avatarBlock_Img}
             />
           </div>
+          <div className={c.avatarName}>
+            {props.props.user_name} {props.props.user_second_name}
+          </div>
           <div className={c.avatarText}>
-            Asked <em className={c.avatarInterPunkt}> &#183; </em>
+            Answered <em className={c.avatarInterPunkt}> &#183; </em>
             <em className={c.avatarInterPunkt}>2h</em>
           </div>
         </div>
@@ -188,7 +211,7 @@ export default function QuestionSingle(props) {
         </div>
         <div className={c.questionText}>
           <div className={c.questionText_Text}>
-            {props.props.questions_text}
+            {props.props.reply_text}
             <em className={c.questionText_More}>more</em>
           </div>
         </div>

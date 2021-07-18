@@ -1,7 +1,7 @@
 import React from 'react'
 import store from '../redux/store'
 import Question from './Question'
-import Reply from './Reply'
+import Reply from './Question/Reply'
 
 const { useState } = require('react')
 const { useEffect } = require('react')

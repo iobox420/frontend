@@ -11,7 +11,7 @@ const mainPageReducer = (state = initialState, action) => {
       return {
         ...state,
         post: action.data.post,
-        replY: action.data.reply,
+        reply: action.data.reply,
       }
     default:
       return state
