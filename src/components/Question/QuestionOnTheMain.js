@@ -125,7 +125,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function NativeText(props) {
+export default function QuestionOnTheMain(props) {
   const c = useStyles()
   /* const [count, setCount] = useState(0)*/
   /*const toPost = (props) => {}*/

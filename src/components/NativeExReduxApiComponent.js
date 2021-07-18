@@ -1,6 +1,6 @@
 import React from 'react'
 import store from '../redux/redux-store'
-import NativeQuestion from './NativeQuestion'
+import NativeQuestion from './Question/QuestionSingle'
 import NativeReply from './NativeReply'
 import NativeAddReply from './NativeAddReply'
 

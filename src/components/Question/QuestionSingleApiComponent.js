@@ -1,7 +1,7 @@
 import React from 'react'
 
-import store from '../redux/redux-store'
-import NativeText from './NativeText'
+import store from '../../redux/redux-store'
+import QuestionOnTheMain from './QuestionOnTheMain'
 import { makeStyles } from '@material-ui/core/styles'
 /*import config from '../config'*/
 
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 })
 
-function NativeTextApi(props) {
+function NativeExReduxApiComponent(props) {
   const c = useStyles()
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -39,6 +39,7 @@ function NativeTextApi(props) {
           setIsLoaded(true)
           store.dispatch({ type: 'UPDATE-POSTS', data: result })
           setItems(store.getState().mainPage.posts)
+          console.log()
         },
         // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
         // чтобы не перехватывать исключения из ошибок в самих компонентах.
@@ -58,11 +59,11 @@ function NativeTextApi(props) {
     return (
       <div className={c.mainWrapper}>
         {items.map((currentPost, index, arr) => {
-          return <NativeText key={index} props={currentPost} />
+          return <QuestionOnTheMain key={index} props={currentPost} />
         })}
       </div>
     )
   }
 }
 
-export default NativeTextApi
+export default NativeExReduxApiComponent

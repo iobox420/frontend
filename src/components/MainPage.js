@@ -6,9 +6,9 @@ import SubHeader from './ssubHeader'
 import TextApi from './TextApiComponent'
 import QuestionApi from './QuestionApiComponent'
 import { BrowserRouter, Route } from 'react-router-dom'
-import NativeTextApi from './NativeTextApiComponent'
-import NativeQuestionApi from './NativeQuestionApiComponent'
-import NativeQuestionApiComponent from './NativeQuestionApiComponent'
+import NativeTextApi from './Question/QuestionOnTheMainApiComponent'
+import NativeQuestionApi from './Question/QuestionSingleApiComponent'
+import NativeQuestionApiComponent from './Question/QuestionSingleApiComponent'
 
 const MainPage = (props) => {
   function RDM(min = 1, max = 10000) {
