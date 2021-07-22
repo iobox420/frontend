@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { updatePostsMainPage } from '../redux/mainPageReducer'
+import { updatePostsMainPageAC } from '../../redux/mainPageReducer'
 import MainPage from './MainPage'
 
 let mapStateToProps = (state) => {
@@ -9,8 +9,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    updatePosts: (data) => {
-      dispatch(updatePostsMainPage(data))
+    updatePosts1: (data) => {
+      dispatch(updatePostsMainPageAC(data))
     },
   }
 }

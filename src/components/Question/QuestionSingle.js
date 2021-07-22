@@ -1,6 +1,7 @@
 import React /*, { useState }*/, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
+import AddCommentTextBox from './AddCommentTextBox'
 
 const useStyles = makeStyles({
   questionWrapper: {
@@ -134,6 +135,8 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'flex-start',
     margin: '0 15px 0 0',
+    border: 'none',
+    background: 'none',
   },
   addCommentBlock_addCommentIcon: {
     lineHeight: 5.2,
@@ -148,12 +151,17 @@ const useStyles = makeStyles({
 })
 
 export default function QuestionSingle(props) {
-  console.log(props)
+  const [showResults, setShowResults] = React.useState(false)
+  const onClick = () => {
+    if (showResults) {
+      setShowResults(false)
+    } else {
+      setShowResults(true)
+    }
+    console.log('click')
+  }
 
   const c = useStyles()
-  /* const [count, setCount] = useState(0)*/
-  /*const toPost = (props) => {}*/
-
   return (
     <div className={c.questionWrapper}>
       <div className={c.lineOneTagsAndData}>
@@ -214,15 +222,11 @@ export default function QuestionSingle(props) {
         </div>
         <button
           className={c.addCommentBlock}
-          /*          onClick={() => {
-            let curState
-            if (count) {
-              curState = false
-            } else {
-              curState = true
-            }
-            SetCount(curState)
+          /*onClick={() => {
+            console.log('button add comment single question')
+            onClick()
           }}*/
+          onClick={onClick}
         >
           <div className={c.addCommentBlock_addCommentIcon}>
             <svg
@@ -241,6 +245,7 @@ export default function QuestionSingle(props) {
           <div className={c.addCommentLabel}>Add comment</div>
         </button>
       </div>
+      {showResults ? <AddCommentTextBox /> : null}
     </div>
   )
 }

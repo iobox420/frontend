@@ -3,6 +3,8 @@ import React from 'react'
 import store from '../../redux/redux-store'
 import QuestionOnTheMain from './QuestionOnTheMain'
 import { makeStyles } from '@material-ui/core/styles'
+import { fetchCustomer } from './async'
+/*import { getPostsThunkCreator } from '../../redux/mainPageReducer'*/
 
 const { useState } = require('react')
 const { useEffect } = require('react')
@@ -25,18 +27,30 @@ function QuestionOnTheMainApiComponent(props) {
   /* let uri = config.baseURL + props.api + '1'
   console.log(uri)*/
   useEffect(() => {
-    /*let uri = config.baseURL + props.api + '1'
-    console.log(uri)*/
+    debugger
+    props.updatePosts()
+    `/*props.updateTestReducer()*/`
+    console.log(store.getState())
+    function sayHi() {
+      console.log(store.getState())
+    }
+
+    setTimeout(sayHi, 3000)
+    /*props.updatePosts()*/
+
+    /*    /!*let uri = config.baseURL + props.api + '1'
+    console.log(uri)*!/
 
     //Вызов fetch  с параметром  let uri = config.baseURL + props.api + '1'
     //приводит к зацикливанию fetch, поэтому захардкодим это место
-    /*fetch(uri)*/
+    /!*fetch(uri)*!/
     fetch('http://localhost:4000/api/questions/all/1')
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true)
-          store.dispatch({ type: 'UPDATE-POSTS', data: result })
+          props.updatePosts(result)
+          /!*store.dispatch({ type: 'UPDATE-POSTS', data: result })*!/
           setItems(store.getState().mainPage.posts)
         },
         // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
@@ -46,7 +60,7 @@ function QuestionOnTheMainApiComponent(props) {
           setError(error)
         }
       )
-    /* console.log(store.getState())*/
+    /!* console.log(store.getState())*!/*/
   }, [])
 
   if (error) {

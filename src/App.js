@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import { Home } from './Home'
 import { Login } from './Login'
 import { Secret } from './Secret'
-import MainPageContainer from './components/MainPageContainer'
+import MainPageContainer from './components/Question/MainPageContainer'
 import Test from './components/Test'
 
 const App = (props) => {

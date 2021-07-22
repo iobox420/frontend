@@ -148,6 +148,8 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'flex-start',
     margin: '0 15px 0 0',
+    border: 'none',
+    background: 'none',
   },
   addCommentBlock_addCommentIcon: {
     lineHeight: 5.2,

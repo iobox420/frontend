@@ -1,12 +1,12 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
-import Header from './Header'
-import SubHeader from './ssubHeader'
-import TextApi from './TextApiComponent'
+import Header from '../Header'
+import SubHeader from '../ssubHeader'
+import TextApi from '../TextApiComponent'
 import { BrowserRouter, Route } from 'react-router-dom'
-import QuestionOnTheMainApiComponent from './Question/QuestionOnTheMainApiComponent'
-import QuestionSingleApiComponent from './Question/QuestionSingleApiComponent'
+import QuestionOnTheMainContainer from './QuestionOnTheMainContainer'
+import QuestionSingleApiComponent from './QuestionSingleApiComponent'
 
 const MainPage = (props) => {
   function RDM(min = 1, max = 10000) {
@@ -32,7 +32,7 @@ const MainPage = (props) => {
             <Route
               path="/all"
               render={() => (
-                <QuestionOnTheMainApiComponent
+                <QuestionOnTheMainContainer
                   props={props}
                   api={'api/questions/all/'}
                 />

@@ -5,7 +5,7 @@ let initialState = {
   reply: [],
 }
 
-const mainPageReducer = (state = initialState, action) => {
+const questionPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_CURRENT_POST:
       return {
@@ -24,4 +24,8 @@ export const updateQuestionPage = (data) => ({
   data: data,
 })
 
-export default mainPageReducer
+export const getQuestionThunk = (dispatch) => {
+  dispatch()
+}
+
+export default questionPageReducer
