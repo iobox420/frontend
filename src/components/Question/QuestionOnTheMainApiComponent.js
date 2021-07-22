@@ -42,7 +42,7 @@ function QuestionOnTheMainApiComponent(props) {
     console.log(uri)*!/
 
     //Вызов fetch  с параметром  let uri = config.baseURL + props.api + '1'
-    //приводит к зацикливанию fetch, поэтому захардкодим это место
+    //приводит к зациклива1нию fetch, поэтому захардкодим это место
     /!*fetch(uri)*!/
     fetch('http://localhost:4000/api/questions/all/1')
       .then((res) => res.json())
